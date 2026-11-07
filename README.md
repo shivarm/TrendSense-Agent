@@ -22,7 +22,7 @@ An AI-powered technology trend forecasting platform that analyzes GitHub Trendin
 
 Make sure you have the following installed:
 
-- Node.js (v18 or later)
+- Node.js (v24 or later)
 - npm
 - Google Gemini API Key
 - Decodo API credentials
@@ -54,8 +54,7 @@ Create a `.env` file in the root directory:
 ```env
 PORT=5000
 GEMINI_API_KEY=your_gemini_api_key
-DECODO_USERNAME=your_decodo_username
-DECODO_PASSWORD=your_decodo_password
+DECODO_API_KEY=your_decodo_api_key
 ```
 
 **5. Start the development server**
