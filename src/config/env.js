@@ -5,5 +5,6 @@ export const ENV = {
   PORT: process.env.PORT,
   BASE_URL: process.env.BASE_URL,
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+  GEMINI_MODEL: process.env.GEMINI_MODEL,
   DECODO_API_KEY: process.env.DECODO_API_KEY,
 };
