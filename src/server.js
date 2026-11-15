@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ENV } from "./config/env.js";
@@ -9,11 +10,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = ENV.PORT || 3000;
+const PORT = ENV.PORT || 5000;
 
 app.use(express.json());
+app.use(cors({
+  origin: ENV.CLIENT_URL
+}))
 
-app.use(express.static(path.resolve(__dirname, "../app")));
+app.use(express.static(path.resolve(__dirname, "../client/dist")));
 
 
 app.post("/api/v1/analyze", async (req, res) => {
