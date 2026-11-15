@@ -1,5 +1,4 @@
 import { ai } from "../lib/gemniAI.js";
-import { ENV } from "../config/env.js";
 
 export async function analyzeTrendingWithGemini(repos) {
   console.log("Gemini AI analyzing patterns...");
@@ -30,7 +29,7 @@ The JSON must strictly follow this structure:
 
   try {
     const response = await ai.models.generateContent({
-      model: ENV.GEMINI_MODEL,
+      model: "gemini-3-flash-preview",
       contents: prompt,
     });
 
