@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import { ENV } from "./config/env.js";
 import { scrapeGithubTrending } from "./services/githubTrending.service.js";
 import { analyzeTrendingWithGemini } from "./services/aiService.service.js";
+import { setupKeepAlive } from './utils/keepAlive.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -56,6 +57,8 @@ app.post("/api/v1/analyze", async (req, res) => {
     });
   }
 });
+
+setupKeepAlive(app);
 
 app.listen(PORT, () => {
   console.log(`🚀 TrendSense Agent server is running smoothly at http://localhost:${PORT}`);
