@@ -5,7 +5,6 @@ import {
   Sparkles,
   TrendingUp,
   Cpu,
-  Lightbulb,
   Star,
   GitFork,
   ExternalLink,
@@ -210,8 +209,8 @@ export default function App() {
             </div>
 
             {/* Skeleton Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-pulse">
-              {[1, 2, 3].map((n) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-pulse">
+              {[1, 2].map((n) => (
                 <div
                   key={n}
                   className="rounded-3xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4"
@@ -239,8 +238,8 @@ export default function App() {
             </div>
             <h3 className="text-lg font-bold">Ready to Analyze</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-              Choose a programming language above and click <strong>Analyze Trends</strong> to fetch
-              real-time GitHub repositories and AI insights.
+              Choose a programming language above and click <strong>Analyze Trends</strong> to
+              explore rising technologies and future predictions from trending repositories.
             </p>
           </div>
         )}
@@ -248,33 +247,27 @@ export default function App() {
         {/* Results Dashboard */}
         {!loading && data && (
           <div className="space-y-8">
-            {/* AI Executive Summary */}
-            <section className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 text-white shadow-2xl relative overflow-hidden">
-              <div className="absolute right-0 bottom-0 translate-x-8 translate-y-8 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="flex items-center gap-2 text-indigo-100 text-xs font-bold uppercase tracking-wider mb-3">
-                <Sparkles className="w-4 h-4" />
-                AI Executive Insights ({data.language})
-              </div>
-              <p className="text-lg sm:text-xl font-medium leading-relaxed relative z-10">
-                {data.analysis?.trending_analysis}
-              </p>
-            </section>
-
-            {/* 3 Column Insights Grid */}
-            <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Trend Insights */}
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Rising Technologies */}
-              <div className="rounded-3xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white to-emerald-50/70 dark:from-slate-900 dark:to-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/70 shadow-sm hover:shadow-lg hover:shadow-emerald-950/5 transition-all duration-300">
+                <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none transition-transform duration-300 group-hover:scale-125" />
+                <div className="relative flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/15">
                     <Cpu className="w-5 h-5" />
                   </div>
-                  <h2 className="font-bold text-lg">Rising Technologies</h2>
+                  <div>
+                    <h2 className="font-bold text-xl tracking-tight">Rising Technologies</h2>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                      Emerging tools and stacks in {data.language}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="relative flex flex-wrap gap-2.5">
                   {data.analysis?.rising_technologies?.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1.5 rounded-xl text-sm font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50"
+                      className="px-3.5 py-2 rounded-xl text-sm font-semibold bg-white/80 dark:bg-slate-900/70 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800/70 shadow-sm"
                     >
                       {tech}
                     </span>
@@ -283,36 +276,26 @@ export default function App() {
               </div>
 
               {/* Predictions */}
-              <div className="rounded-3xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
+              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white to-amber-50/70 dark:from-slate-900 dark:to-amber-950/20 border border-amber-200/80 dark:border-amber-900/70 shadow-sm hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300">
+                <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-amber-400/10 blur-3xl pointer-events-none transition-transform duration-300 group-hover:scale-125" />
+                <div className="relative flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 ring-1 ring-amber-500/15">
                     <TrendingUp className="w-5 h-5" />
                   </div>
-                  <h2 className="font-bold text-lg">Future Predictions</h2>
-                </div>
-                <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300 font-medium">
-                  {data.analysis?.predictions?.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Recommendations */}
-              <div className="rounded-3xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400">
-                    <Lightbulb className="w-5 h-5" />
+                  <div>
+                    <h2 className="font-bold text-xl tracking-tight">Future Predictions</h2>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                      Signals pointing to what comes next
+                    </p>
                   </div>
-                  <h2 className="font-bold text-lg">Recommendations</h2>
                 </div>
-                <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300 font-medium">
-                  {data.analysis?.recommendations?.map((rec, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
-                      <span>{rec}</span>
+                <ul className="relative space-y-3">
+                  {data.analysis?.predictions?.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-amber-100 dark:border-amber-900/50 p-3.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-xs font-bold text-amber-700 dark:text-amber-300">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span className="pt-0.5">{item}</span>
                     </li>
                   ))}
                 </ul>

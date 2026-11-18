@@ -11,7 +11,7 @@ export async function analyzeTrendingWithGemini(repos) {
     .join("\n\n");
 
   const prompt = `
-You are an expert technical trend analyst. Analyze the following GitHub trending repositories and provide a detailed analysis.
+You are an expert technical trend analyst. Analyze the following GitHub trending repositories.
 
 Here is the trending repositories data:
 ${reposSummary}
@@ -20,10 +20,8 @@ CRITICAL REQUIREMENT: Return ONLY a valid JSON object. Do NOT include any markdo
 
 The JSON must strictly follow this structure:
 {
-  "trending_analysis": "A brief 1 to 2 sentence summary of the overall technical trend.",
   "rising_technologies": ["tech_1", "tech_2", "tech_3", "tech_4", "tech_5"],
-  "predictions": ["prediction_1", "prediction_2", "prediction_3"],
-  "recommendations": ["recommendation_1", "recommendation_2", "recommendation_3"]
+  "predictions": ["prediction_1", "prediction_2", "prediction_3"]
 }
 `;
 
@@ -44,12 +42,7 @@ The JSON must strictly follow this structure:
     return parsedData;
   } catch (error) {
     console.error("Error in Gemini analysis or JSON parsing:", error);
-    return {
-      trending_analysis: "Unable to fetch live AI analysis at the moment. Please try again later.",
-      rising_technologies: ["JavaScript", "TypeScript", "Node.js"],
-      predictions: ["AI-driven tools will continue to grow.", "Developer productivity tools are in high demand."],
-      recommendations: ["Check your API quota.", "Retry scraping after some time."]
-    };
+    throw error;
   }
 }
 
@@ -68,9 +61,6 @@ export function displayResult(analysis, repos) {
 
   console.log("\n--------------------------------------------------\n");
 
-  console.log("Trend Analysis:");
-  console.log(`  ${analysis.trending_analysis}\n`);
- 
   console.log("Rising Technologies:");
   analysis.rising_technologies.forEach((tech, i) => {
     console.log(`  • ${tech}`);
@@ -84,12 +74,6 @@ export function displayResult(analysis, repos) {
   });
 
   console.log("");
- 
-  console.log("Recommendations for Developers:");
-  analysis.recommendations.forEach((rec, i) => {
-    console.log(`  - ${rec}`);
-  });
-
   console.log("\n==================================================");
   console.log(" ✅ Analysis completed successfully!");
   console.log("==================================================\n");

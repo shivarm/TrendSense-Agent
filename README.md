@@ -3,7 +3,7 @@ An AI-powered technology trend forecasting platform that analyzes GitHub Trendin
 
 # Features
 
-- Trend Prediction: Uses Google Gemini API to analyze repository trends and identify potentially emerging frameworks and technologies.
+- Trend Insights: Uses Google Gemini API to identify rising technologies and predict future trends from trending repositories.
 
 - GitHub Trending Analysis: Collects trending repositories and extracts valuable insights.
 
@@ -11,7 +11,7 @@ An AI-powered technology trend forecasting platform that analyzes GitHub Trendin
 
 - Intelligent Data Processing: Processes scraped repository information through scalable backend workflows.
 
-- Technology Trend Insights: Generates AI-driven analysis to highlight rising technologies and potential future trends.
+- Focused Results: Presents rising technologies and future predictions alongside the repositories that informed them.
 
 - Scalable Backend Architecture: Built with [Node.js](https://nodejs.org/) and [Express.js](https://expressjs.com/) to manage data collection, processing, and AI-powered analysis.
 
