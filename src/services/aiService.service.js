@@ -27,7 +27,7 @@ The JSON must strictly follow this structure:
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3.8-live",
+      model: "gemini-3.8-flash",
       contents: prompt,
     });
 
