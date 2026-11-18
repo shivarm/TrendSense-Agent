@@ -16,7 +16,7 @@ An AI-powered technology trend forecasting platform that analyzes GitHub Trendin
 - Scalable Backend Architecture: Built with [Node.js](https://nodejs.org/) and [Express.js](https://expressjs.com/) to manage data collection, processing, and AI-powered analysis.
 
 
-# ⚙️ Getting Started
+# Getting Started
 
 ### Prerequisites
 
@@ -44,17 +44,19 @@ cd TrendSense-Agent
 **3. Install dependencies**
 
 ```bash
-npm install
+npm run build
 ```
 
 **4. Configure environment variables**
 
-Create a `.env` file in the root directory:
+Create a `.env` file in backend root directory:
 
 ```env
-PORT=5000
-GEMINI_API_KEY=your_gemini_api_key
-DECODO_API_KEY=your_decodo_api_key
+PORT=
+BASE_URL=
+CLIENT_URL= 
+GEMINI_API_KEY=
+DECODO_API_KEY=
 ```
 
 **5. Start the development server**
@@ -66,7 +68,7 @@ npm run dev
 Or start the production server:
 
 ```bash
-npm start
+npm run start
 ```
 
 ### 📄 License

@@ -101,7 +101,7 @@ export default function App() {
             <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-lg shadow-indigo-500/30">
               <Sparkles className="w-5 h-5" />
             </div>
-            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold tracking-tight `bg-linear-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
               TrendSense AI
             </span>
           </div>
@@ -203,7 +203,7 @@ export default function App() {
                 <p className="text-xs text-slate-500 dark:text-slate-400">
                   Fetching live data for{" "}
                   <span className="font-semibold text-indigo-500 uppercase">{language}</span> —
-                  usually takes 4–8 seconds
+                  usually takes 10–20 seconds
                 </p>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function App() {
             {/* Trend Insights */}
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Rising Technologies */}
-              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white to-emerald-50/70 dark:from-slate-900 dark:to-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/70 shadow-sm hover:shadow-lg hover:shadow-emerald-950/5 transition-all duration-300">
+              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-linear-to-br from-white to-emerald-50/70 dark:from-slate-900 dark:to-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/70 shadow-sm hover:shadow-lg hover:shadow-emerald-950/5 transition-all duration-300">
                 <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none transition-transform duration-300 group-hover:scale-125" />
                 <div className="relative flex items-center gap-4 mb-6">
                   <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/15">
@@ -276,7 +276,7 @@ export default function App() {
               </div>
 
               {/* Predictions */}
-              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white to-amber-50/70 dark:from-slate-900 dark:to-amber-950/20 border border-amber-200/80 dark:border-amber-900/70 shadow-sm hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300">
+              <div className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-linear-to-br from-white to-amber-50/70 dark:from-slate-900 dark:to-amber-950/20 border border-amber-200/80 dark:border-amber-900/70 shadow-sm hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300">
                 <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-amber-400/10 blur-3xl pointer-events-none transition-transform duration-300 group-hover:scale-125" />
                 <div className="relative flex items-center gap-4 mb-6">
                   <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 ring-1 ring-amber-500/15">
